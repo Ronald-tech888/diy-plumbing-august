@@ -5,32 +5,246 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You – DIY Plumbing Workshop</title>
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f6f8; color: #1f1f1f; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
-    .card { background: #fff; border-radius: 20px; box-shadow: 0 15px 45px rgba(15,40,90,0.12); padding: 36px; max-width: 560px; width: 100%; text-align: center; }
-    h1 { color: #0c5dbb; margin-top: 0; }
-    p { line-height: 1.5; }
-    .info { margin: 24px auto; background: #fffaf1; border: 1px solid #ffe2b5; border-radius: 18px; padding: 18px; text-align: left; }
-    .info h3 { margin: 0 0 8px; color: #b06900; }
-    .info p { margin: 4px 0; }
-    .actions { margin-top: 24px; display: grid; gap: 12px; }
-    a { text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 600; display: inline-block; }
-    .primary { background: #0c5dbb; color: #fff; }
-    .secondary { border: 1px solid #ced1db; color: #0c356b; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0c5dbb 0%, #13a3c7 100%);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .thank-you-card {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: slideUp 0.5s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .header {
+      background: linear-gradient(120deg, #0c5dbb, #13a3c7);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    
+    .checkmark {
+      font-size: 80px;
+      margin-bottom: 10px;
+      display: inline-block;
+      animation: bounce 0.6s ease-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .content {
+      padding: 40px 30px;
+    }
+    
+    .content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+      margin: 15px 0;
+    }
+    
+    .payment-details {
+      background: #fffaf1;
+      border: 2px solid #ffe2b5;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+    
+    .payment-details h3 {
+      color: #b06900;
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
+    }
+    
+    .payment-details p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    
+    .payment-details strong {
+      color: #0c5dbb;
+    }
+    
+    .whatsapp-box {
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .whatsapp-box a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .whatsapp-box a:hover {
+      text-decoration: underline;
+    }
+    
+    .email-box {
+      background: #f0f0f0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .email-box a {
+      color: #0c5dbb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .button-group {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #0c5dbb;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #0a4c95;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+    
+    .footer {
+      background: #f8f9fa;
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    @media (max-width: 640px) {
+      .content {
+        padding: 25px 20px;
+      }
+      
+      .header {
+        padding: 30px 20px;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .checkmark {
+        font-size: 60px;
+      }
+      
+      .button-group {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Thanks! 🎉</h1>
-    <p>We’ve received your registration. Please complete payment within 12 hours to secure your seat.</p>
-    <div class="info">
-      <h3>Touch 'n Go eWallet · Ong Soon Chong</h3>
-      <p><strong>TNG ID / Mobile:</strong> 133083049</p>
-      <p><strong>Reference:</strong> DIY Plumbing Workshop</p>
-      <p>After paying, send the slip via WhatsApp +6013-308-3049 or email purchasingpoweruser@gmail.com.</p>
-      <p>Bank transfer option: Hong Leong Bank 04100099089 (Ong Soon Chong).</p>
+  <div class="thank-you-card">
+    <div class="header">
+      <div class="checkmark">✅</div>
+      <h1>Registration Received!</h1>
+      <p style="font-size: 1.1rem; margin-top: 10px;">You're one step closer to becoming a DIY plumber</p>
     </div>
-    <div class="actions">
-      <a class="primary" href="https://ronald-tech888.github.io/diy-plumbing-mandarin/">Back to Landing Page</a>
+    
+    <div class="content">
+      <p><strong>Thank you for registering for the DIY Plumbing Workshop!</strong> We're excited to have you join us.</p>
+      
+      <div class="payment-details">
+        <h3>💰 Complete Your Payment</h3>
+        <p><strong>Touch 'n Go eWallet</strong> (Ong Soon Chong)</p>
+        <p>📱 <strong>TNG ID / Mobile:</strong> 133083049</p>
+        <p>📝 <strong>Reference:</strong> DIY Plumbing Workshop</p>
+        <p style="margin-top: 12px;"><strong>Bank Transfer Option:</strong></p>
+        <p>🏦 <strong>Hong Leong Bank (HLB)</strong><br>Account: 04100099089<br>Name: Ong Soon Chong</p>
+      </div>
+      
+      <p><strong>To confirm your seat, please send your payment slip via:</strong></p>
+      
+      <div class="whatsapp-box">
+        📱 <a href="https://wa.me/60133083049?text=I've%20made%20payment%20for%20DIY%20Plumbing%20Workshop" target="_blank">
+          WhatsApp +6013-308-3049
+        </a>
+      </div>
+      
+      <div class="email-box">
+        📧 <a href="mailto:purchasingpoweruser@gmail.com?subject=Payment%20Slip%20-%20DIY%20Plumbing%20Workshop">
+          Email purchasingpoweruser@gmail.com
+        </a>
+      </div>
+      
+      <p style="font-size: 0.95rem; color: #666; text-align: center; margin-top: 20px;">
+        ⏰ Please complete payment within <strong>12 hours</strong> to secure your seat.<br>
+        Seats are confirmed only after payment slip is received.
+      </p>
+      
+      <div class="button-group">
+        <a href="register.html" class="btn btn-secondary">⬅️ Register Another Person</a>
+        <a href="https://ronald-tech888.github.io/diy-plumbing-mandarin/" class="btn btn-primary">🏠 Back to Homepage</a>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>📞 Questions? Contact us at +6013-308-3049</p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">DIY Plumbing Workshop · Saturday, 6 June 2026 · 9:00 AM – 1:00 PM</p>
     </div>
   </div>
 </body>
