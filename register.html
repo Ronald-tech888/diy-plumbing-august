@@ -5,24 +5,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register – DIY Plumbing Workshop</title>
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f6f8; margin: 0; color: #1f1f1f; }
-    header { background: linear-gradient(120deg, #0c5dbb, #13a3c7); padding: 32px 20px; text-align: center; color: #fff; }
-    main { max-width: 720px; margin: -30px auto 60px; background: #fff; border-radius: 16px; box-shadow: 0 15px 45px rgba(15,40,90,0.12); padding: 40px; }
-    h1, h2 { margin-top: 0; }
-    label { display: block; font-weight: 600; margin: 18px 0 6px; }
-    input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid #d9dbe1; font-size: 1rem; box-sizing: border-box; }
-    textarea { min-height: 110px; resize: vertical; }
-    .radio-group, .checkbox-group { display: grid; gap: 8px; margin: 10px 0 4px; }
-    .radio-option, .checkbox-option { background: #f7f8fc; border-radius: 10px; padding: 10px 12px; border: 1px solid transparent; }
-    .radio-option input, .checkbox-option input { margin-right: 10px; }
-    .help { font-size: 0.92rem; color: #606274; }
-    button { margin-top: 24px; width: 100%; background: #0c5dbb; color: #fff; border: none; border-radius: 999px; padding: 14px; font-size: 1.05rem; font-weight: 600; cursor: pointer; }
-    button:hover { background: #0a4c95; }
-    .info-box { background: #f1f7ff; border-left: 4px solid #0c5dbb; padding: 14px 18px; border-radius: 12px; margin-bottom: 18px; }
-    .tng-box { background: #fffaf1; border: 1px solid #ffe2b5; border-radius: 16px; padding: 18px; margin-bottom: 22px; }
-    .tng-box p { margin: 6px 0; }
-    .error-message { background: #fee; border-left: 4px solid #c00; padding: 12px 16px; margin-bottom: 20px; border-radius: 8px; color: #c00; display: none; }
-    @media (max-width: 640px) { main { padding: 26px; } }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: #f5f6f8; 
+      margin: 0; 
+      color: #1f1f1f; 
+    }
+    header { 
+      background: linear-gradient(120deg, #0c5dbb, #13a3c7); 
+      padding: 32px 20px; 
+      text-align: center; 
+      color: #fff; 
+    }
+    header p {
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+    main { 
+      max-width: 720px; 
+      margin: -30px auto 60px; 
+      background: #fff; 
+      border-radius: 16px; 
+      box-shadow: 0 15px 45px rgba(15,40,90,0.12); 
+      padding: 40px; 
+    }
+    h1, h2 { 
+      margin-top: 0; 
+    }
+    label { 
+      display: block; 
+      font-weight: 600; 
+      margin: 18px 0 6px; 
+    }
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    textarea { 
+      width: 100%; 
+      padding: 12px 14px; 
+      border-radius: 10px; 
+      border: 1px solid #d9dbe1; 
+      font-size: 1rem; 
+      box-sizing: border-box; 
+      transition: border 0.15s;
+    }
+    input:focus, textarea:focus {
+      border-color: #0c5dbb;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(12,93,187,0.1);
+    }
+    textarea { 
+      min-height: 110px; 
+      resize: vertical; 
+    }
+    .radio-group, .checkbox-group { 
+      display: grid; 
+      gap: 8px; 
+      margin: 10px 0 4px; 
+    }
+    .radio-option, .checkbox-option { 
+      background: #f7f8fc; 
+      border-radius: 10px; 
+      padding: 10px 12px; 
+      border: 1px solid transparent; 
+      transition: background 0.1s;
+    }
+    .radio-option:hover, .checkbox-option:hover {
+      background: #eef2fa;
+    }
+    .radio-option input, .checkbox-option input { 
+      margin-right: 10px; 
+    }
+    .help { 
+      font-size: 0.92rem; 
+      color: #606274; 
+      margin-top: 4px;
+    }
+    button { 
+      margin-top: 28px; 
+      width: 100%; 
+      background: #0c5dbb; 
+      color: #fff; 
+      border: none; 
+      border-radius: 999px; 
+      padding: 14px; 
+      font-size: 1.05rem; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: 0.15s;
+    }
+    button:hover { 
+      background: #0a4c95; 
+    }
+    .info-box { 
+      background: #f1f7ff; 
+      border-left: 4px solid #0c5dbb; 
+      padding: 14px 18px; 
+      border-radius: 12px; 
+      margin-bottom: 18px; 
+    }
+    .tng-box { 
+      background: #fffaf1; 
+      border: 1px solid #ffe2b5; 
+      border-radius: 16px; 
+      padding: 18px; 
+      margin-bottom: 22px; 
+    }
+    .tng-box p { 
+      margin: 6px 0; 
+    }
+    .error-message { 
+      background: #fee; 
+      border-left: 4px solid #c00; 
+      padding: 12px 16px; 
+      margin-bottom: 20px; 
+      border-radius: 8px; 
+      color: #c00; 
+      display: none; 
+    }
+    .date-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0 8px;
+    }
+    .date-card {
+      flex: 1 0 calc(50% - 12px);
+      background: #f7f8fc;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1.5px solid transparent;
+      transition: all 0.1s;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .date-card:hover {
+      background: #eef2fa;
+      border-color: #b2c9e8;
+    }
+    .date-card input[type="radio"] {
+      margin-right: 12px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: #0c5dbb;
+    }
+    .date-card .date-label {
+      font-weight: 500;
+    }
+    .date-card .date-day {
+      font-size: 0.9rem;
+      color: #3d4a5e;
+    }
+    @media (max-width: 640px) { 
+      main { padding: 26px; }
+      .date-card {
+        flex: 1 0 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -64,6 +210,28 @@
       <label for="whatsapp">WhatsApp / Mobile Number *</label>
       <input type="tel" id="whatsapp" name="WhatsApp / Mobile" placeholder="e.g., +6013-308-3049" required pattern="^\+?[0-9\-\s]{8,20}$" title="Please enter a valid phone number with country code">
       <p class="help">Include country code if you are outside Malaysia.</p>
+
+      <!-- NEW: Date selection block (1 Aug, 8 Aug, 15 Aug, 22 Aug) -->
+      <label style="margin-top: 22px;">Choose your preferred workshop date *</label>
+      <div class="date-grid">
+        <label class="date-card">
+          <input type="radio" name="Workshop Date" value="1 August 2026" required>
+          <span class="date-label">1 August 2026 <span class="date-day">(Saturday)</span></span>
+        </label>
+        <label class="date-card">
+          <input type="radio" name="Workshop Date" value="8 August 2026">
+          <span class="date-label">8 August 2026 <span class="date-day">(Saturday)</span></span>
+        </label>
+        <label class="date-card">
+          <input type="radio" name="Workshop Date" value="15 August 2026">
+          <span class="date-label">15 August 2026 <span class="date-day">(Saturday)</span></span>
+        </label>
+        <label class="date-card">
+          <input type="radio" name="Workshop Date" value="22 August 2026">
+          <span class="date-label">22 August 2026 <span class="date-day">(Saturday)</span></span>
+        </label>
+      </div>
+      <p class="help">Select one date. All sessions are 9:00 AM – 1:00 PM.</p>
 
       <label>Ticket Selection *</label>
       <div class="radio-group">
